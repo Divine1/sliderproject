@@ -30,6 +30,7 @@ i have made this project to be more generic.
 You can now integrate this slider component into your project by just copying the slider folder into your project.
 
 You should pass 2 inputs to this slider component
+
     1. images
         - Array of JSON object
         - You can pass 'n' number of objects to this.
@@ -47,12 +48,11 @@ You should pass 2 inputs to this slider component
                     title: "Batman on the roof"
                 }
             ]
+
     2. slideDuration
         - Specify the value in millisecond (4000 is 4s, 5000 is 5s)
         - Amount of time after which the slider has to move to the next slide automatically
 
-
-To understand what is happening , you can dowload this project and run it to understand how it works.
 
 ### Note 2
 i have added SCSS package in this module. SCSS transpilers will automatically get downloaded when you install this npm package.
