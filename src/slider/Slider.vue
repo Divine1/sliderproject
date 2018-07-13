@@ -1,11 +1,25 @@
 <template>
   <div id="slider">
-    <div class="arrowLeft" @click="arrowLeft()"></div>
+    <div title="previous image" class="arrowLeft" @click="arrowLeft()"></div>
     <Slides :image="images[chosenImage]"/>
-    <div class="arrowRight" @click="arrowRight()"></div>
-    <div class="squares">
-        <div @click="squares(image.id)" v-for="image in images" :key="image.id"></div>
+    <div title="next image" class="arrowRight" @click="arrowRight()"></div>
+    <div class="controls">
+        <div class="squares">
+            <div 
+                @click="squares(image.id)" 
+                v-for="image in images" 
+                :key="image.id" 
+                :title="'Goto image '+(image.id+1)"
+                :class="{'active' : (image.id == chosenImage) ? true : false}">
+                {{image.id+1}}
+            </div>
+        </div>
+        <div class="pauseplay">
+            <div title="play" class="play" @click="pauseplay('play')" v-if="pauseplayToggle">&#9658;</div>
+            <div title="pause" class="pause" @click="pauseplay('pause')" v-else>&#10074;&#10074;</div>
+        </div>
     </div>
+    
   </div>
 </template>
 
@@ -15,63 +29,32 @@ export default {
     components : {
         Slides
     },
+    props:[
+        "images","intervalDuration"
+    ],
     data(){
         return{
-            images : [
-                {
-                    id: 0,
-                    url : "/images/image1.jpg",
-                    title: "Lightning"
-                },
-                 {
-                    id: 1,
-                    url : "/images/image2.jpg",
-                    title: "Batman on the roof"
-                },
-                {
-                    id: 2,
-                    url : "/images/image3.jpg",
-                    title: "Suicide Squad"
-                },
-                {
-                    id: 3,
-                    url : "/images/image4.jpg",
-                    title: "Flash & Reverse Flash"
-                },
-                {
-                    id: 4,
-                    url : "/images/image5.jpg",
-                    title: "Batman Red"
-                }
-            ],
             chosenImage : 0,
-            intervalObject : null
+            intervalObject : null,
+            pauseplayToggle : false //false - play, true - pause
         }
     },
     methods :{
         squares(id){
             this.chosenImage = id;
-             clearInterval(this.intervalObject);
-            var self= this;
-            this.intervalObject = setInterval(()=>{
-                self.moveRight();
-            },4000);
+            clearInterval(this.intervalObject);
+            this.setIntervalSlider('right');
+            this.pauseplayToggle = false;
         },
         arrowLeft(){
             clearInterval(this.intervalObject);
             this.moveLeft();
-            var self= this;
-            this.intervalObject = setInterval(()=>{
-                self.moveLeft();
-            },4000);
+            this.setIntervalSlider('left');
         },
         arrowRight(){
             clearInterval(this.intervalObject);
             this.moveRight();
-            var self= this;
-            this.intervalObject = setInterval(()=>{
-                self.moveRight();
-            },4000);
+            this.setIntervalSlider('right');
         },
         moveLeft(){
             var flag = this.chosenImage;
@@ -80,6 +63,7 @@ export default {
                 flag= (this.images.length -1);
             }
             this.chosenImage = flag;
+            this.pauseplayToggle = false;
         },
         moveRight(){
             var flag = this.chosenImage;
@@ -88,47 +72,114 @@ export default {
                 flag=0;
             }
             this.chosenImage = flag;
+            this.pauseplayToggle = false;
+        },
+        pauseplay(action){
+            console.log("in pauseplay method ", action);
+            if(action == 'play'){
+                this.arrowRight();
+                this.pauseplayToggle = false;
+            }
+            else if(action == 'pause'){
+                clearInterval(this.intervalObject);
+                this.pauseplayToggle = true;
+            }
+        },
+        setIntervalSlider(direction){
+            var self= this;
+            this.intervalObject = setInterval(()=>{
+                if(direction == "right"){
+                    self.moveRight();
+                }
+                else if(direction == "left"){
+                    self.moveLeft();
+                }
+            },this.intervalDuration);
         }
     },
     created(){
-        var self= this;
-        this.intervalObject = setInterval(()=>{
-            self.moveLeft();
-        },4000);
+        this.setIntervalSlider('right');
     }
 }
 </script>
 
-<style>
-#slider{
+<style lang="scss">
+
+$color-arrow : #f37115;
+$color-slideindicator : yellow;
+$color-playbutton : brown;
+$color-pausebutton : #580843;
+$controls-height-width : 20px;
+$controls-innerchild-right-margin: 15px;
+$controls-pauseplay-topdown-margin: 10px;
+$controls-pauseplay-font-size:20px;
+$controls-squares-font-size:15px;
+$controls-squares-active-backgroundcolor : #58584f;
+$controls-squares-active-font-color:white;
+#slider {
     position: relative;
     overflow: hidden;
-}
-
-#slider .arrowLeft,#slider .arrowRight{
-    position: absolute;
-    top: 50%;
-    border: 20px solid transparent;
-}
-#slider .arrowLeft{
-    border-right-color: green;    
-    z-index: 1;
-}
-#slider .arrowRight{
-    right:0;
-    border-left-color: green;
-}
-#slider .squares{
-    position: absolute;
-    bottom: 0;
-    left: calc( 50% - 75px);
-}
-#slider .squares div{
-    height:20px;
-    width:20px;
-    margin-right: 10px;
-    display: inline-block;
-    background-color:yellow;
-    border-radius:50%;
+    .arrowLeft,.arrowRight{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 20px solid transparent;
+        cursor: pointer;
+    }
+    .arrowLeft{
+        border-right-color: $color-arrow;    
+        z-index: 1;
+    }
+    .arrowRight{
+        right:0;
+        border-left-color: $color-arrow;
+    }
+    .controls{
+        position: absolute;
+        bottom: 0;
+        left:50%;
+        transform: translateX(-50%);
+        font-weight: bold;
+        .squares{
+            div{
+                height:$controls-height-width;
+                width:$controls-height-width;
+                line-height: $controls-height-width;
+                text-align: center;
+                margin-right: $controls-innerchild-right-margin;
+                display: inline-block;
+                background-color: $color-slideindicator;
+                border-radius:50%;
+                cursor: pointer;
+                font-size: $controls-squares-font-size;
+            }
+            .active{
+                background-color:$controls-squares-active-backgroundcolor;
+                color:$controls-squares-active-font-color;
+            }
+        }
+        .pauseplay{
+            display:flex;
+            justify-content: center;
+            margin: $controls-pauseplay-topdown-margin 0;
+            font-size: $controls-pauseplay-font-size;
+            div{
+                display: inline-block;
+                height: $controls-height-width;
+                line-height: $controls-height-width;
+                width: $controls-height-width;
+                text-align: center;
+                border-radius: 50%;
+                cursor: pointer;
+                margin-right: $controls-innerchild-right-margin;
+            }
+            .play{
+                color: $color-playbutton;
+            }
+            .pause{
+                color: $color-pausebutton;
+            }
+        }
+    }
 }
 </style>
