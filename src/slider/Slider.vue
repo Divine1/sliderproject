@@ -120,6 +120,7 @@ $controls-squares-active-font-color:white;
     position: relative;
     overflow: hidden;
     height: inherit;
+    width: inherit;
     .arrowLeft,.arrowRight{
         position: absolute;
         top: 50%;

@@ -28,6 +28,7 @@ $fontsize-slidetext : 40px;
 
 #slides{
     height: inherit;
+    width: inherit;
     .slideParent{
         width: 100%;
         height:100%;

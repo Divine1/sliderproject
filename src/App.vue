@@ -50,7 +50,8 @@ body{
   margin:0;
 }
 #mainapp{
-  //height: 500px;
-  height: 100vh;
+  height: 500px;
+  width: 100%;
+  //height: 100vh;
 }
 </style>

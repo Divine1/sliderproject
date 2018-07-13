@@ -55,7 +55,7 @@ You should pass 2 inputs to this slider component
 To understand what is happening , you can dowload this project and run it to understand how it works.
 
 ### Note 2
-i have added SCSS package in this module. SCSS transphilers will automatically get downloaded when you install this npm package.
+i have added SCSS package in this module. SCSS transpilers will automatically get downloaded when you install this npm package.
 
 i have provided scss variables, so that you can make changes to font-size,background-color,font-color,height,width ...etc according to your project need.
 
@@ -92,13 +92,35 @@ i would've missed something here, but that is all i remember for now.
 if you have any queries or need any support on your project kindly raise an issue or contact me on twitter
 
 
-### Setting up this project
+### Note 4
+#### Setting up this project
 
-#### Setting up as local component
-i'd recommend you to use it as local component
+i'd recommend you to use it as local component.
+You have to specificy the height & width of the slider in the `container` element of the `<Slider ...>` component.
+
+In the below code sample, `.slidercontainer` class is the container element for the `<Slider ...>` component. So you SHOULD to specify the height & width of the image slider in this class.
+
+```
+//for full screen image slider
+.slidercontainer{
+    height:100vh;
+    width:100%;
+}
+
+//image slider with less height and full width
+.slidercontainer{
+    height:400px;
+    width:100%;
+}
+
+//image slider with less height and less width
+.slidercontainer{
+    height:400px;
+    width:600px;
+}
 ```
     <template>
-        <div>
+        <div class="slidercontainer">
             <Slider :images="images" :intervalDuration="slideDuration"/>
         </div>
     </template>
@@ -123,6 +145,12 @@ i'd recommend you to use it as local component
             }
         }
     </script>
+    <style>
+        .slidercontainer{
+            height:100vh;
+            width:100%;
+        }
+    </style>
 ```
 ### Sample Project
 
