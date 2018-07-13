@@ -75,8 +75,9 @@ i have introduced pause and play controls in image slider
 `&#10074;` -  unicode symbol which denotes Pause slider
 
 This unicode may not work in some browsers, You could face browser compatibility issues.
+i'd recommend you to first run this on chrome and verify if this module suits your requirement and then move to a different browser.
 
-In `Slider.vue` file there are two classes already defined.
+Feel free to use any icons or images for pause and play elemennts. In `Slider.vue` file there are two classes already defined.
 ```
 .play{
     color: brown;
@@ -86,10 +87,6 @@ In `Slider.vue` file there are two classes already defined.
 }
 ```
 You can introduce any icons or images into it. i will leave it to you.
-
-i would've missed something here, but that is all i remember for now. 
-
-if you have any queries or need any support on your project kindly raise an issue or contact me on twitter
 
 
 ### Note 4
