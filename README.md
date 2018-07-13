@@ -18,7 +18,9 @@ npm run build
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
+
 ##Update - 2018-07-13
+
 
 i have made this project more generic.
 
