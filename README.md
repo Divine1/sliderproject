@@ -92,4 +92,4 @@ i would've missed something here, but that is all i remember for now.
 if you have any queries or need any support on your project kindly raise an issue or contact me on twitter
 
 
-You can find me on twitter @divine_rw
+You can find me on twitter [@divine_rw](https://twitter.com/divine_rw)
