@@ -119,6 +119,9 @@ In the below code sample, `.slidercontainer` class is the container element for 
     width:600px;
 }
 ```
+### Code sample
+
+```
     <template>
         <div class="slidercontainer">
             <Slider :images="images" :intervalDuration="slideDuration"/>
@@ -152,7 +155,10 @@ In the below code sample, `.slidercontainer` class is the container element for 
         }
     </style>
 ```
+
+
 ### Sample Project
+
 
 You can download [my project](https://github.com/Divine1/sliderproject.git) from git and see how it works. i have given all the input datas in it. You just have to download the project -> set it up -> run
 
