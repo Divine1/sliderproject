@@ -19,14 +19,14 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 
 
-##Update - 2018-07-13
+## Update - 2018-07-13
 
 
 i have made this project more generic.
 
-###Below are the details of the changes
+## Below are the details of the changes
 
-####Change 1:
+### Change 1:
 You can now integrate this slider component into your project by just copying the slider folder into your project.
 
 You should pass 2 inputs to this slider component
@@ -54,7 +54,7 @@ You should pass 2 inputs to this slider component
 
 To understand what is happening , you can dowload this project and run it to understand how it works.
 
-####Change 2
+### Change 2
 i have added SCSS package for development.
 
 i have provided scss variables, so that you can make changes to font-size,background-color,font-color,height,width ...etc according to your project need.
@@ -67,7 +67,7 @@ Below is the npm command to install scss compiler into vuejs
     npm install sass-loader node-sass style-loader --save
 ```
 
-##Change 3
+### Change 3
 i have introduced pause and play controls in image slider
 
 `&#9658;` - unicode symbol which denotes Play slider
