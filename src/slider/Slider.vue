@@ -119,6 +119,7 @@ $controls-squares-active-font-color:white;
 #slider {
     position: relative;
     overflow: hidden;
+    height: inherit;
     .arrowLeft,.arrowRight{
         position: absolute;
         top: 50%;

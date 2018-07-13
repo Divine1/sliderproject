@@ -2,12 +2,18 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.js',
+  entry : path.resolve(__dirname + '/src/slider/Slider.vue'),
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
-    
+    filename: 'vue-slider.js',
+    libraryTarget : 'umd',
+    library: 'vue-slider',
+    umdNamedDefine : true
+  },
+  externals :{
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "vue": "^2.5.11"
   },
   module: {
     rules: [

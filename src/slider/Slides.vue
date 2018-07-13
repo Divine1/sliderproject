@@ -27,12 +27,12 @@ $animation-zoom-duration : 6s;
 $fontsize-slidetext : 40px;
 
 #slides{
+    height: inherit;
     .slideParent{
-        height:100vh;
         width: 100%;
-
+        height:100%;
         .slideImage{
-            height:100vh;
+            height:100%;
             width: 100%;
             background-position:center;
             background-repeat: no-repeat;
@@ -45,7 +45,7 @@ $fontsize-slidetext : 40px;
                 color:$color-slidetext;
                 font-weight:bold;
                 font-size: $fontsize-slidetext;
-                height:100vh;
+                height:100%;
                 display:flex;
                 justify-content: center;
                 align-items:center;

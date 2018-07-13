@@ -22,11 +22,11 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 ## Update - 2018-07-13
 
 
-i have made this project more generic.
+i have made this project to be more generic.
 
-## Below are the details of the changes
+## Below are the notable details
 
-### Change 1:
+### Note 1:
 You can now integrate this slider component into your project by just copying the slider folder into your project.
 
 You should pass 2 inputs to this slider component
@@ -54,8 +54,8 @@ You should pass 2 inputs to this slider component
 
 To understand what is happening , you can dowload this project and run it to understand how it works.
 
-### Change 2
-i have added SCSS package for development.
+### Note 2
+i have added SCSS package in this module. SCSS transphilers will automatically get downloaded when you install this npm package.
 
 i have provided scss variables, so that you can make changes to font-size,background-color,font-color,height,width ...etc according to your project need.
 
@@ -67,7 +67,7 @@ Below is the npm command to install scss compiler into vuejs
     npm install sass-loader node-sass style-loader --save
 ```
 
-### Change 3
+### Note 3
 i have introduced pause and play controls in image slider
 
 `&#9658;` - unicode symbol which denotes Play slider
@@ -90,6 +90,43 @@ You can introduce any icons or images into it. i will leave it to you.
 i would've missed something here, but that is all i remember for now. 
 
 if you have any queries or need any support on your project kindly raise an issue or contact me on twitter
+
+
+### Setting up this project
+
+#### Setting up as local component
+i'd recommend you to use it as local component
+```
+    <template>
+        <div>
+            <Slider :images="images" :intervalDuration="slideDuration"/>
+        </div>
+    </template>
+    <script>
+        import Slider from "vue-slider-rw";
+        export default {
+            components :{
+                Slider
+            },
+            data () {
+                return {
+                    images : [
+                        {
+                            id: 0, url : "/images/image1.jpg", title: "Lightning"
+                        },
+                        {
+                            id: 1, url : "/images/image2.jpg", title: "Batman on the roof"
+                        }
+                    ],
+                    slideDuration : 4000
+                }
+            }
+        }
+    </script>
+```
+### Sample Project
+
+You can download [my project](https://github.com/Divine1/sliderproject.git) from git and see how it works. i have given all the input datas in it. You just have to download the project -> set it up -> run
 
 
 You can find me on twitter [@divine_rw](https://twitter.com/divine_rw)

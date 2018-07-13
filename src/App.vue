@@ -45,8 +45,12 @@ export default {
 }
 </script>
 
-<style>
- body{
-   margin:0;
- }
+<style lang="scss">
+body{
+  margin:0;
+}
+#mainapp{
+  //height: 500px;
+  height: 100vh;
+}
 </style>
