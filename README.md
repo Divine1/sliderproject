@@ -68,8 +68,9 @@ Below is the npm command to install scss compiler into vuejs
 ##Change 3
 i have introduced pause and play controls in image slider
 
-`&#9658;` - unicode for Play the slider
-`&#10074;` -  unicode to Pause the slider
+`&#9658;` - unicode symbol which denotes Play slider
+
+`&#10074;` -  unicode symbol which denotes Pause slider
 
 This unicode may not work in some browsers, You could face browser compatibility issues.
 
