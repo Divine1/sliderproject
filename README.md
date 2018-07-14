@@ -32,26 +32,27 @@ You can now integrate this slider component into your project by just copying th
 You should pass 2 inputs to this slider component
 
 - images
-        - Array of JSON object
-        - You can pass 'n' number of objects to this.
-        - Please note that the `id` object inside the images array must start with 0 and it has to      increment from there
-        - Below is the sample array
-            images : [
-                {
-                    id: 0,
-                    url : "/images/image1.jpg",
-                    title: "Lightning"
-                },
-                {
-                    id: 1,
-                    url : "/images/image2.jpg",
-                    title: "Batman on the roof"
-                }
-            ]
-
+    - Array of JSON object
+    - You can pass 'n' number of objects to this.
+    - Please note that the `id` object inside the images array must start with 0 and it has to      increment from there
+    - Below is the sample array
+        ```
+        images : [
+            {
+                id: 0,
+                url : "/images/image1.jpg",
+                title: "Lightning"
+            },
+            {
+                id: 1,
+                url : "/images/image2.jpg",
+                title: "Batman on the roof"
+            }
+        ]
+        ```
 - slideDuration
-        - Specify the value in millisecond (4000 is 4s, 5000 is 5s)
-        - Amount of time after which the slider has to move to the next slide automatically
+    - Specify the value in millisecond (4000 is 4s, 5000 is 5s)
+    - Amount of time after which the slider has to move to the next slide automatically
 
 
 ### Note 2
