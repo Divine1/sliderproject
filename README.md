@@ -31,7 +31,7 @@ You can now integrate this slider component into your project by just copying th
 
 You should pass 2 inputs to this slider component
 
-    1. images
+- images
         - Array of JSON object
         - You can pass 'n' number of objects to this.
         - Please note that the `id` object inside the images array must start with 0 and it has to      increment from there
@@ -49,7 +49,7 @@ You should pass 2 inputs to this slider component
                 }
             ]
 
-    2. slideDuration
+- slideDuration
         - Specify the value in millisecond (4000 is 4s, 5000 is 5s)
         - Amount of time after which the slider has to move to the next slide automatically
 
